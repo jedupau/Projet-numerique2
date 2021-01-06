@@ -1,22 +1,16 @@
 import numpy as np
 import matplotlib.pyplot as plt
 def solve_euler_explicit(f, x0, dt, t0, tf):
-    liste_t = []
-    liste_x = []
-    t = t0
-    x = x0
-    liste_t.append(t0)
-    liste_x.append(x0)
-    while t < tf:
-        x += dt * f(t, x)
-        t += dt
-        liste_t.append(t)
-        liste_x.append(x)
-    t,x = np.array(liste_t), np.array(liste_x)
+    t = [t0]
+    x = [x0]
+    while t[-1] < tf:
+        t.append(t[-1] + dt)
+        x.append(x[-1] + dt * f(t, x[-1]))
+    t,x = np.array(t), np.array(x)
     return t, x
 
 def f(t,x):
-    return 1/t
-sol = solve_euler_explicit(f, 0, 0.1, 0.1, 10)
+    return x
+sol = solve_euler_explicit(f, np.array([1]), 0.01, 0, 10)
 plt.plot(sol[0], sol[1])
 plt.show()
