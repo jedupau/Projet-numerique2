@@ -1,7 +1,4 @@
-alpha = 0.1
-beta = 0.2
-gamma = 0.1
-delta = 0.1
+from Q2 import alpha, beta, gamma, delta
 import numpy as np
 import matplotlib.pyplot as plt
 def display_contour(f, x, y, levels):
