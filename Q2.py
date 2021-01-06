@@ -1,4 +1,3 @@
-from math import sin, cos
 from numpy import linspace, meshgrid
 from matplotlib.pyplot import quiver, show, streamplot
 alpha = 0.1
